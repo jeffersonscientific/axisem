@@ -168,7 +168,10 @@ subroutine save_google_earth_kml(srccolat1, srclon1, rcvcolat, rcvlon, &
   comp(2) = 'ph'
   comp(3) = 'z'
    
-  open(unit=88,file=infopath(1:lfinfo)//'/src_rec_'//fname//'.kml')
+  !open(unit=88,file=infopath(1:lfinfo)//'/src_rec_'//fname//'.kml')
+  ! yoder: need to spefy a new file? It looks like the kml file is being written from the top,
+  ! but I think the Info directory is intended to be created externally (need to track that down).
+  open(unit=88,file=infopath(1:lfinfo)//'/src_rec_'//fname//'.kml', STATUS='NEW')
   
   write(88,14)'<?xml version="1.0" encoding="UTF-8"?> '
   write(88,15)'<kml xmlns="http://earth.google.com/kml/2.0"> '

@@ -136,8 +136,13 @@ CC=${CC} CXX=${CXX} FC=${FC} MPI_CC=${MPICC} MPI_FC=${MPIFC} MPI_CXX=${MPI_DIR}/
 #    exit 1
 #fi
 #
+make clean
 #make -j ${N_COMPILE_TASKS}
 make -j 1
+#
+# make instll does not seem to be working. I though cmake would build it, but seems not so...
+# so we'll try again, or just write some copy commands here:
+
 
 if [[ ! $? -eq 0 ]]; then
     exit 1
